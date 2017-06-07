@@ -1,0 +1,14 @@
+.comp_header {
+  $headerHeight: 3.733em;
+  $logoHeight: 1.5em;
+  $headerPadding: 0.2em;
+
+  height: $headerHeight;
+  padding: $headerPadding $headerHeight;
+  .logo {
+    height: $logoHeight;
+    width: 13em;
+    float: right;
+    margin-top: ($headerHeight - $logoHeight) / 2 - $headerPadding;
+  }
+}

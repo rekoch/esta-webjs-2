@@ -12,8 +12,9 @@ import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {HttpModule, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {TranslateService} from '@ngx-translate/core';
-import {NotificationsService} from 'angular2-notifications';
+import {ButtonModule, GrowlModule, Message} from 'primeng/primeng';
 import {Observable} from 'rxjs';
+
 import {AboutComponent} from './about.component';
 import {PostsService} from './posts.service';
 
@@ -28,16 +29,6 @@ describe('AboutComponent', () => {
     let component: AboutComponent;
     let fixture: ComponentFixture<AboutComponent>;
 
-    class NotificationServiceMock {
-        public success() {
-        }
-
-        public info() {
-        }
-
-        public error() {
-        }
-    }
     class TranslateServiceMock {
         public use() {
         }
@@ -68,10 +59,9 @@ describe('AboutComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [HttpModule],
+            imports: [HttpModule, GrowlModule, ButtonModule],
             declarations: [AboutComponent, MockPipe],
             providers: [{provide: XHRBackend, useClass: MockBackend},
-                {provide: NotificationsService, useClass: NotificationServiceMock},
                 {provide: TranslateService, useClass: TranslateServiceMock}
             ]
         })
@@ -104,25 +94,27 @@ describe('AboutComponent', () => {
         expect(component.posts[1].title).toBe('hi 2');
     });
 
-    it('should call the notificationsService to display a success, info and an error message',
-        inject([NotificationsService], (notificaitonsService: NotificationsService) => {
-            spyOn(notificaitonsService, 'success')
-            spyOn(notificaitonsService, 'info')
-            spyOn(notificaitonsService, 'error')
+    it('should push three messages to the message opject', () => {
+        //given
+        const createMessage = (severity, summary, detail) => ({severity, summary, detail})
+        const expectedSuccessMessage: Message = createMessage('info', 'Info Message', 'PrimeNG rocks');
+        const expectedWaringMessage: Message = createMessage('warn', 'Warn Message', 'Sample warning');
+        const expectedErrorMessage: Message = createMessage('error', 'Error Message', 'Sample error');
 
-            component.createMessages()
-
-            expect(notificaitonsService.success).toHaveBeenCalledWith('Erfolg', 'Ich bin eine Erfolgsmeldung')
-            expect(notificaitonsService.info).toHaveBeenCalledWith('Info', 'Ich bin eine Infomeldung')
-            expect(notificaitonsService.error).toHaveBeenCalledWith('Fehler', 'Ich bin eine Fehlermeldung')
-        }));
+        //when
+        component.createMessages()
+        //then
+        expect(component.messages).toContain(expectedSuccessMessage);
+        expect(component.messages).toContain(expectedWaringMessage);
+        expect(component.messages).toContain(expectedErrorMessage);
+    });
 
     it('onInit should subscribe to PostsService [getPostById]', () => {
         component.ngOnInit();
         expect(component.postById.title).toBe('hi 4');
     });
 
-    it('should the translationService to change the language',
+    it('should call the translationService to change the language',
         inject([TranslateService], (translateService: TranslateService) => {
             const lang = 'de';
             spyOn(translateService, 'use');

@@ -17,7 +17,7 @@ interface NavItem {
 @Component({
     selector: 'app-navbar',
     templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.css']
+    styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
 

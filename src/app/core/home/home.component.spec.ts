@@ -28,7 +28,11 @@ describe('HomeComponent', () => {
     });
 
     it('has a name property [title]', () => {
-        expect(component.title).toBe('ESTA WebJS 2 - Starterkit mit AngularJS 2');
+        expect(component.title).toBe('ESTA WebJS 2');
+    });
+
+    it('has a name property [subtitle]', () => {
+        expect(component.subtitle).toBe('Starterkit mit AngularJS 2');
     });
 
     it('has a name property [welcomeMessage]', () => {
