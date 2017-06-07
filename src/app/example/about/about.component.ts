@@ -41,6 +41,10 @@ export class AboutComponent implements OnInit {
         this.messageService.createErrorMessage('Awesome error message', 'Error Message');
     }
 
+    clearMessages() {
+        this.messageService.clearMessages();
+    }
+
     changeLanguage(lang) {
         this.translateService.use(lang);
     }
