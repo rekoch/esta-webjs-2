@@ -17,6 +17,7 @@ import {AppComponent} from './app.component';
 import {routing} from './app.routes';
 import {CoreModule} from './core/core.module';
 import {ExampleModule} from './example/example.module';
+import {MessagesModule} from 'esta-webjs-extensions';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: Http) {
     imports: [
         BrowserModule,
         CoreModule,
+        MessagesModule,
         ExampleModule,
         TranslateModule.forRoot({
             loader: {

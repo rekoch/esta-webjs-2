@@ -13,10 +13,8 @@ import {RouterModule} from '@angular/router';
 import {GrowlModule} from 'primeng/primeng';
 
 import {HomeComponent} from './home/home.component';
-import {MessageComponent} from './messages/messages.component';
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {NavComponent} from './nav/nav.component';
-import {MessageService} from './messages/messages.service';
 
 @NgModule({
     imports: [
@@ -24,9 +22,8 @@ import {MessageService} from './messages/messages.service';
         RouterModule,
         GrowlModule
     ],
-    declarations: [NavComponent, HomeComponent, MessageComponent],
-    providers: [MessageService],
-    exports: [NavComponent, MessageComponent]
+    declarations: [NavComponent, HomeComponent],
+    exports: [NavComponent]
 })
 export class CoreModule {
 

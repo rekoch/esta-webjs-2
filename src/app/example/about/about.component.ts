@@ -12,7 +12,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Message} from 'primeng/primeng';
 
 import {PostsService} from './posts.service';
-import {MessageService} from '../../core/messages/messages.service';
+import {MessagesService} from 'esta-webjs-extensions';
 
 @Component({
     selector: 'app-about',
@@ -25,7 +25,7 @@ export class AboutComponent implements OnInit {
     postById: any;
     messages: Array<Message> = [];
 
-    constructor(private postsService: PostsService, private messageService: MessageService,
+    constructor(private postsService: PostsService, private messageService: MessagesService,
                 private translateService: TranslateService) {
         this.aboutMessage = 'Über dieses Template';
     }
