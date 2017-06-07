@@ -49,37 +49,6 @@ h6 {
   font-size: 1rem;
 }
 
-.ui-button.ui-state-default,
-.ui-widget-content .ui-button.ui-state-default {
-  border-color: $sbb-black-20;
-  background-color: $sbb-black-20;
-
-  .ui-button-text {
-    color: $sbb-black-90;
-  }
-
-  &:enabled:hover,
-  &:focus {
-    border-color: $sbb-black-30;
-    background-color: $sbb-black-30;
-  }
-}
-
-.ui-button.ui-button-primary.ui-state-default {
-  border-color: $sbb-red-100;
-  background-color: $sbb-red-100;
-
-  .ui-button-text {
-    color: $sbb-white;
-  }
-
-  &:enabled:hover,
-  &:focus {
-    border-color: $sbb-red-125;
-    background-color: $sbb-red-125;
-  }
-}
-
 .ui-growl{
   position: absolute;
   z-index: 1050 !important;
