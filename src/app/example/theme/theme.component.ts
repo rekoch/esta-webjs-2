@@ -16,7 +16,7 @@ import {MenuItem, Message, SelectItem} from 'primeng/primeng';
     templateUrl: './theme.component.html',
     styles: [`
         .component-example-group {
-            margin-top: 15px;
+            margin-bottom: 20px;
         }
     `]
 })
