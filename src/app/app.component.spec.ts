@@ -1,17 +1,15 @@
 /**
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2017.
  *
- * ESTA WebJS: Navbar Component
+ * ESTA WebJS: App Component
  *
  * @author u218609 (Kevin Kreuzer)
  * @version: 2.0.0
  * @since 10.05.2017, 2017.
  */
-import {async, TestBed} from '@angular/core/testing';
+import {async, inject, TestBed} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import {SimpleNotificationsModule} from 'angular2-notifications';
-
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 
@@ -29,8 +27,7 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             imports: [
                 CoreModule,
-                RouterModule.forRoot([], {useHash: true}),
-                SimpleNotificationsModule.forRoot()
+                RouterModule.forRoot([], {useHash: true})
             ],
             declarations: [
                 AppComponent
@@ -47,4 +44,17 @@ describe('AppComponent', () => {
         let app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     }));
+
+    it('should call the set and use of the Translationservice',
+        inject([TranslateService], (translationService: TranslateService) => {
+            //given
+            spyOn(translationService, 'use');
+            spyOn(translationService, 'setDefaultLang');
+            //when
+            TestBed.createComponent(AppComponent);
+            //then
+            expect(translationService.use).toHaveBeenCalledWith('de');
+            expect(translationService.setDefaultLang).toHaveBeenCalledWith('de');
+        })
+    );
 });

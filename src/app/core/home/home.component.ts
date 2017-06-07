@@ -15,10 +15,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
     title: string;
+    subtitle: string;
     welcomeMessage: string;
 
     constructor() {
-        this.title = 'ESTA WebJS 2 - Starterkit mit AngularJS 2';
+        this.title = 'ESTA WebJS 2';
+        this.subtitle = 'Starterkit mit AngularJS 2'
         this.welcomeMessage = 'Herzlich Willkommen';
     }
 

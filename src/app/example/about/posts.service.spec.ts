@@ -8,9 +8,10 @@
  * @since 26.04.2017, 2017.
  */
 import {TestBed} from '@angular/core/testing';
-import {PostsService} from './posts.service';
-import {HttpModule, XHRBackend, ResponseOptions, Response} from "@angular/http";
+import {HttpModule, Response, ResponseOptions, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+
+import {PostsService} from './posts.service';
 
 describe('PostsService', () => {
     beforeEach(() => {

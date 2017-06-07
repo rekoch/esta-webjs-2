@@ -19,13 +19,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
+        "../node_modules/font-awesome/scss/font-awesome.scss",
+        "../node_modules/primeng/resources/primeng.css",
+        "../node_modules/primeng/resources/themes/omega/theme.scss",
+        "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.js",
-        "../node_modules/tether/dist/js/tether.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "scripts/collapse.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

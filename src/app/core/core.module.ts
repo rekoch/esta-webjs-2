@@ -10,9 +10,9 @@
 import {CommonModule} from '@angular/common';
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {RouterModule} from '@angular/router';
+
 import {HomeComponent} from './home/home.component';
 import {throwIfAlreadyLoaded} from './module-import-guard';
-
 import {NavComponent} from './nav/nav.component';
 
 @NgModule({
