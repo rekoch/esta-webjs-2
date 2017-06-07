@@ -12,6 +12,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Message} from 'primeng/primeng';
 
 import {PostsService} from './posts.service';
+import {MessageService} from '../../core/messages/messages.service';
 
 @Component({
     selector: 'app-about',
@@ -24,9 +25,8 @@ export class AboutComponent implements OnInit {
     postById: any;
     messages: Array<Message> = [];
 
-    constructor(private postsService: PostsService,
+    constructor(private postsService: PostsService, private messageService: MessageService,
                 private translateService: TranslateService) {
-
         this.aboutMessage = 'Über dieses Template';
     }
 
@@ -36,9 +36,9 @@ export class AboutComponent implements OnInit {
     }
 
     createMessages() {
-        this.messages.push({severity: 'info', summary: 'Info Message', detail: 'PrimeNG rocks'});
-        this.messages.push({severity: 'warn', summary: 'Warn Message', detail: 'Sample warning'});
-        this.messages.push({severity: 'error', summary: 'Error Message', detail: 'Sample error'});
+        this.messageService.createSuccessMessage('Awesome succes message', 'Success Message');
+        this.messageService.createWarningMessage('Awesome warning message', 'Warning Message');
+        this.messageService.createErrorMessage('Awesome error message', 'Error Message');
     }
 
     changeLanguage(lang) {
