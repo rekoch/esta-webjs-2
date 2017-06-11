@@ -7,25 +7,25 @@
  * @version: 2.0.0
  * @since 23.05.2017, 2017.
  */
-import {throwIfAlreadyLoaded} from './module-import-guard'
+import {throwIfAlreadyLoaded} from './module-import-guard';
 
 describe('Module Import Guard', () => {
 
     it('should throw an error if the parentModule is already loaded', () => {
-        //when
+        // when
         const parentModule = {};
-        const moduleName = 'Mocked parentmodule'
-        //then
+        const moduleName = 'Mocked parentmodule';
+        // then
         expect(() => throwIfAlreadyLoaded(parentModule, moduleName))
             .toThrow(new Error(`${moduleName} has already been loaded. Import core modules in the AppModule only.`));
     });
 
     it('should not throw an error if ther parentModule has not been loaded', (done) => {
-        //when
+        // when
         const parentModule = undefined;
-        const moduleName = 'Undefined parentmodule'
+        const moduleName = 'Undefined parentmodule';
         throwIfAlreadyLoaded(parentModule, moduleName);
-        //then
-        done()
+        // then
+        done();
     });
 });

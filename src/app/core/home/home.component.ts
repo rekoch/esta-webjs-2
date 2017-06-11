@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
     constructor() {
         this.title = 'ESTA WebJS 2';
-        this.subtitle = 'Starterkit mit AngularJS 2'
+        this.subtitle = 'Starterkit mit AngularJS 2';
         this.welcomeMessage = 'Herzlich Willkommen';
     }
 

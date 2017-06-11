@@ -14,20 +14,20 @@ describe('AboutPage', function () {
     let aboutPage: AboutPage;
 
     beforeEach(() => {
-      console.log('reto2', browser.baseUrl);
+        console.log('reto2', browser.baseUrl);
         aboutPage = new AboutPage();
         browser.get('#/about');
     });
 
     it('should change the langugae from german to english and back to german', () => {
-        //when
+        // when
         aboutPage.changeToEnglish();
-        //then
+        // then
         expect(aboutPage.getAboutTitleText()).toBe('The about page');
         expect(aboutPage.getAboutSubtitleText()).toBe('This text gets translated by ng2-translate');
-        //when
+        // when
         aboutPage.changeToGerman();
-        //then
+        // then
         expect(aboutPage.getAboutTitleText()).toBe('Die About Seite');
         expect(aboutPage.getAboutSubtitleText()).toBe('Dieser Text wird von ng2-translate übersetzt');
     });
