@@ -40,19 +40,19 @@ describe('AppComponent', () => {
     });
 
     it('should create the app', async(() => {
-        let fixture = TestBed.createComponent(AppComponent);
-        let app = fixture.debugElement.componentInstance;
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
     }));
 
     it('should call the set and use of the Translationservice',
         inject([TranslateService], (translationService: TranslateService) => {
-            //given
+            // given
             spyOn(translationService, 'use');
             spyOn(translationService, 'setDefaultLang');
-            //when
+            // when
             TestBed.createComponent(AppComponent);
-            //then
+            // then
             expect(translationService.use).toHaveBeenCalledWith('de');
             expect(translationService.setDefaultLang).toHaveBeenCalledWith('de');
         })

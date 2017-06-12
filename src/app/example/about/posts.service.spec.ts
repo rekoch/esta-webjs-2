@@ -24,9 +24,9 @@ describe('PostsService', () => {
     });
 
     it('returns observable in getAllPosts() ', (done) => {
-        let mockBackend = TestBed.get(XHRBackend);
-        let sut = TestBed.get(PostsService);
-        let responseOptions = new ResponseOptions({
+        const mockBackend = TestBed.get(XHRBackend);
+        const sut = TestBed.get(PostsService);
+        const responseOptions = new ResponseOptions({
             body: [{
                 id: 1,
                 msg: 'Hello'
@@ -40,7 +40,7 @@ describe('PostsService', () => {
             connection.mockRespond(new Response(responseOptions));
         });
 
-        let obs = sut.getAllPosts();
+        const obs = sut.getAllPosts();
 
         obs.subscribe(r => {
             expect(r[0].id).toBe(1);
@@ -52,9 +52,9 @@ describe('PostsService', () => {
     });
 
     it('returns observable in getPostById(x) ', (done) => {
-        let mockBackend = TestBed.get(XHRBackend);
-        let sut = TestBed.get(PostsService);
-        let responseOptions = new ResponseOptions({
+        const mockBackend = TestBed.get(XHRBackend);
+        const sut = TestBed.get(PostsService);
+        const responseOptions = new ResponseOptions({
             body: {
                 id: 1,
                 msg: 'Hello'
@@ -65,7 +65,7 @@ describe('PostsService', () => {
             connection.mockRespond(new Response(responseOptions));
         });
 
-        let obs = sut.getPostById(1);
+        const obs = sut.getPostById(1);
 
         obs.subscribe(r => {
             expect(r.id).toBe(1);
