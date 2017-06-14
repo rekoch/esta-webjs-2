@@ -57,16 +57,16 @@
                 </h3>
                 <div style="width:250px;margin-bottom:10px">
                     <div>
-                        <p-radioButton name="group1" value="Option 1" label="Option 1"
-                                       [(ngModel)]="radioValue"></p-radioButton>
+                        <p-radioButton name="group1" value="Option 1" label="Option 1">
+                        </p-radioButton>
                     </div>
                     <div>
-                        <p-radioButton name="group1" value="Option 2" label="Option 2"
-                                       [(ngModel)]="radioValue"></p-radioButton>
+                        <p-radioButton name="group1" value="Option 2" label="Option 2">
+                        </p-radioButton>
                     </div>
                     <div>
-                        <p-radioButton name="group1" value="Option 3" label="Option 3"
-                                       [(ngModel)]="radioValue"></p-radioButton>
+                        <p-radioButton name="group1" value="Option 3" label="Option 3">
+                        </p-radioButton>
                     </div>
                 </div>
                 <div>
@@ -75,11 +75,11 @@
                             <small>(Docs)</small>
                         </a>
                     </h3>
-                    <h5 class="first">Basic - ({{checked1}})</h5>
-                    <p-toggleButton [(ngModel)]="checked1" [style]="{'width':'150px'}"></p-toggleButton>
+                    <h5 class="first">Basic</h5>
+                    <p-toggleButton [style]="{'width':'150px'}"></p-toggleButton>
 
-                    <h5>Customized - ({{checked2}})</h5>
-                    <p-toggleButton [(ngModel)]="checked2" onLabel="I confirm" offLabel="I reject"
+                    <h5>Customized</h5>
+                    <p-toggleButton onLabel="I confirm" offLabel="I reject"
                                     onIcon="fa-check-square"
                                     offIcon="fa-square" [style]="{'width':'150px'}"></p-toggleButton>
                 </div>
@@ -89,7 +89,7 @@
                             <small>(Docs)</small>
                         </a>
                     </h3>
-                    <p-selectButton [options]="selectButtonItems" [(ngModel)]="selectedButtonItem"></p-selectButton>
+                    <p-selectButton [options]="selectButtonItems"></p-selectButton>
                 </div>
             </div>
         </p-panel>
@@ -106,33 +106,29 @@
             <div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">Basic</span>
-                    <p-inputMask class="ui-g-6" mask="99-999999" [(ngModel)]="val1"
-                                 placeholder="99-999999"></p-inputMask>
+                    <p-inputMask class="ui-g-6" mask="99-999999" placeholder="99-999999"></p-inputMask>
                 </div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">SSN</span>
-                    <p-inputMask class="ui-g-6" mask="999-99-9999" [(ngModel)]="val2"
-                                 placeholder="999-99-9999"></p-inputMask>
+                    <p-inputMask class="ui-g-6" mask="999-99-9999" placeholder="999-99-9999"></p-inputMask>
                 </div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">Date</span>
-                    <p-inputMask class="ui-g-6" mask="99/99/9999" [(ngModel)]="val3" placeholder="99/99/9999"
+                    <p-inputMask class="ui-g-6" mask="99/99/9999" placeholder="99/99/9999"
                                  slotChar="mm/dd/yyyy"></p-inputMask>
                 </div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">Phone</span>
-                    <p-inputMask class="ui-g-6" mask="(999) 999 99 99" [(ngModel)]="val4"
-                                 placeholder="(999) 999-9999"></p-inputMask>
+                    <p-inputMask class="ui-g-6" mask="(999) 999 99 99" placeholder="(999) 999-9999"></p-inputMask>
                 </div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">Phone Ext</span>
-                    <p-inputMask class="ui-g-6" mask="(999) 999 99 99? x99999" [(ngModel)]="val5"
+                    <p-inputMask class="ui-g-6" mask="(999) 999 99 99? x99999"
                                  placeholder="(999) 999-9999? x99999"></p-inputMask>
                 </div>
                 <div class="ui-grid-row">
                     <span class="ui-g-2">Serial Number</span>
-                    <p-inputMask class="ui-g-6" mask="a*-999-a999" [(ngModel)]="val6"
-                                 placeholder="a*-999-a999"></p-inputMask>
+                    <p-inputMask class="ui-g-6" mask="a*-999-a999" placeholder="a*-999-a999"></p-inputMask>
                 </div>
             </div>
         </p-panel>
@@ -228,10 +224,9 @@
                             </div>
                             <div class="ui-grid-col-4"></div>
                         </div>
-                        <div style="text-align:center;margin-top:20px" *ngIf="submitted">
+                        <div style="text-align:center;margin-top:20px">
                             Form Submitted
                             <br>
-                            {{diagnostic}}
                         </div>
                     </div>
                 </p-panel>
