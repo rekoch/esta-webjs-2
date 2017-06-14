@@ -47,7 +47,7 @@ export class ThemeComponent implements OnInit {
     }
 
     private createBreadCrumbItems(): Array<MenuItem> {
-        let breadCrumbItems = [];
+        const breadCrumbItems = [];
         breadCrumbItems.push({label: 'Categories'});
         breadCrumbItems.push({label: 'Sports'});
         breadCrumbItems.push({label: 'Football'});
@@ -60,7 +60,7 @@ export class ThemeComponent implements OnInit {
     }
 
     private createSelectButtonItems(): Array<SelectItem> {
-        let cities = [];
+        const cities = [];
         cities.push({label: 'New York', value: 'New York'});
         cities.push({label: 'Rome', value: 'Rome'});
         cities.push({label: 'London', value: 'London'});
@@ -79,7 +79,7 @@ export class ThemeComponent implements OnInit {
     }
 
     private createTableColumns() {
-        let columns: Array<string> = [];
+        const columns: Array<string> = [];
         columns.push(this.createColumn('firstname', 'firstname'));
         columns.push(this.createColumn('lastname', 'lastname'));
         columns.push(this.createColumn('position', 'position'));
@@ -92,7 +92,7 @@ export class ThemeComponent implements OnInit {
     }
 
     private createTableItems(): Array<any> {
-        let players: Array<any> = []
+        const players: Array<any> = [];
         players.push(this.createPlayer('Cristiano', 'Ronaldo', 'Striker', 'Real Madrid'));
         players.push(this.createPlayer('Karmi', 'Benzema', 'Striker', 'Real Madrid'));
         players.push(this.createPlayer('Sergio', 'Ramos', 'Defender', 'Real Madrid'));

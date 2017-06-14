@@ -13,7 +13,7 @@ import {HttpModule, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {TranslateService} from '@ngx-translate/core';
 import {ButtonModule, GrowlModule, Message} from 'primeng/primeng';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 
 import {AboutComponent} from './about.component';
 import {PostsService} from './posts.service';
@@ -95,15 +95,15 @@ describe('AboutComponent', () => {
     });
 
     it('should push three messages to the message opject', () => {
-        //given
-        const createMessage = (severity, summary, detail) => ({severity, summary, detail})
+        // given
+        const createMessage = (severity, summary, detail) => ({severity, summary, detail});
         const expectedSuccessMessage: Message = createMessage('info', 'Info Message', 'PrimeNG rocks');
         const expectedWaringMessage: Message = createMessage('warn', 'Warn Message', 'Sample warning');
         const expectedErrorMessage: Message = createMessage('error', 'Error Message', 'Sample error');
 
-        //when
-        component.createMessages()
-        //then
+        // when
+        component.createMessages();
+        // then
         expect(component.messages).toContain(expectedSuccessMessage);
         expect(component.messages).toContain(expectedWaringMessage);
         expect(component.messages).toContain(expectedErrorMessage);

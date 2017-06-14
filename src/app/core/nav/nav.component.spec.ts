@@ -30,11 +30,11 @@ describe('NavbarComponent', () => {
     });
 
     it(`should declare navItems for home, about and theme`, () => {
-        let expectedNavItems = [
+        const expectedNavItems = [
             {displayName: 'Home', routerLink: ''},
             {displayName: 'About', routerLink: 'about'},
             {displayName: 'Theme', routerLink: 'theme'}
         ];
-        expect(expectedNavItems).toEqual(component.navItems)
+        expect(expectedNavItems).toEqual(component.navItems);
     });
-})
+});
