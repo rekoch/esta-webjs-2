@@ -23,15 +23,15 @@ import {MenuItem, Message, SelectItem} from 'primeng/primeng';
 export class ThemeComponent implements OnInit {
 
     public primengBaseDocumentationUrl = 'https://www.primefaces.org/primeng/#/';
-    private breadCrumbItems: Array<MenuItem>;
-    private splitButtonItems: Array<MenuItem>;
-    private selectButtonItems: Array<SelectItem>;
-    private tableItems: Array<any>;
-    private tableColumns: Array<any>;
-    private fb: FormBuilder;
-    private userform: FormGroup;
-    private genders: SelectItem[];
-    private msgs: Message[] = [];
+    public breadCrumbItems: Array<MenuItem>;
+    public splitButtonItems: Array<MenuItem>;
+    public selectButtonItems: Array<SelectItem>;
+    public tableItems: Array<any>;
+    public tableColumns: Array<any>;
+    public fb: FormBuilder;
+    public userform: FormGroup;
+    public genders: SelectItem[];
+    public msgs: Message[] = [];
 
     constructor() {
         this.fb = new FormBuilder();
