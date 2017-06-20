@@ -20,7 +20,6 @@ import {
     DataTableModule,
     DropdownModule,
     FieldsetModule,
-    GrowlModule,
     InputMaskModule,
     MessagesModule,
     PanelModule,
@@ -58,7 +57,6 @@ import {ThemeComponent} from './theme/theme.component';
         DataTableModule,
         SharedModule,
         MessagesModule,
-        GrowlModule,
         PanelModule
     ]
 })

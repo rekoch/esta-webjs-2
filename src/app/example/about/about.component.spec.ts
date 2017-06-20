@@ -12,7 +12,7 @@ import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {HttpModule, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {TranslateService} from '@ngx-translate/core';
-import {ButtonModule, GrowlModule} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
 import {MessagesService} from 'esta-webjs-extensions';
 import {Observable} from 'rxjs/Observable';
 
@@ -60,7 +60,7 @@ describe('AboutComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [HttpModule, GrowlModule, ButtonModule],
+            imports: [HttpModule, ButtonModule],
             declarations: [AboutComponent, MockPipe],
             providers: [{provide: XHRBackend, useClass: MockBackend},
                 {provide: TranslateService, useClass: TranslateServiceMock},
