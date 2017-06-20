@@ -1,7 +1,7 @@
 /**
  * Copyright (C) Schweizerische Bundesbahnen SBB, 2017.
  *
- * ESTA WebJS: Page Object für die About Seite
+ * ESTA WebJS: About Component
  *
  * @author u218609 (Kevin Kreuzer)
  * @version: 2.0.0
@@ -9,7 +9,6 @@
  */
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {Message} from 'primeng/primeng';
 
 import {PostsService} from './posts.service';
 import {MessagesService} from 'esta-webjs-extensions';
@@ -23,9 +22,8 @@ export class AboutComponent implements OnInit {
     aboutMessage: string;
     posts: any[];
     postById: any;
-    messages: Array<Message> = [];
 
-    constructor(private postsService: PostsService, private messageService: MessagesService,
+    constructor(private postsService: PostsService, private messagesService: MessagesService,
                 private translateService: TranslateService) {
         this.aboutMessage = 'Über dieses Template';
     }
@@ -36,13 +34,14 @@ export class AboutComponent implements OnInit {
     }
 
     createMessages() {
-        this.messageService.createSuccessMessage('Awesome succes message', 'Success Message');
-        this.messageService.createWarningMessage('Awesome warning message', 'Warning Message');
-        this.messageService.createErrorMessage('Awesome error message', 'Error Message');
+        this.messagesService.createSuccessMessage('Awesome succes message', 'Success Message');
+        this.messagesService.createInfoMessage('Awesome info message', 'Info Message');
+        this.messagesService.createWarningMessage('Important warning message', 'Warning Message');
+        this.messagesService.createErrorMessage('Awful error message', 'Error Message');
     }
 
     clearMessages() {
-        this.messageService.clearMessages();
+        this.messagesService.clearMessages();
     }
 
     changeLanguage(lang) {

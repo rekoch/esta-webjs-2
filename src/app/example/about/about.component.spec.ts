@@ -12,8 +12,9 @@ import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 import {HttpModule, XHRBackend} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {TranslateService} from '@ngx-translate/core';
-import {ButtonModule, GrowlModule, Message} from 'primeng/primeng';
-import {Observable} from 'rxjs';
+import {ButtonModule, GrowlModule} from 'primeng/primeng';
+import {MessagesService} from 'esta-webjs-extensions';
+import {Observable} from 'rxjs/Observable';
 
 import {AboutComponent} from './about.component';
 import {PostsService} from './posts.service';
@@ -62,7 +63,8 @@ describe('AboutComponent', () => {
             imports: [HttpModule, GrowlModule, ButtonModule],
             declarations: [AboutComponent, MockPipe],
             providers: [{provide: XHRBackend, useClass: MockBackend},
-                {provide: TranslateService, useClass: TranslateServiceMock}
+                {provide: TranslateService, useClass: TranslateServiceMock},
+                MessagesService
             ]
         })
             .overrideComponent(AboutComponent, {
@@ -94,20 +96,31 @@ describe('AboutComponent', () => {
         expect(component.posts[1].title).toBe('hi 2');
     });
 
-    it('should push three messages to the message opject', () => {
-        //given
-        const createMessage = (severity, summary, detail) => ({severity, summary, detail})
-        const expectedSuccessMessage: Message = createMessage('info', 'Info Message', 'PrimeNG rocks');
-        const expectedWaringMessage: Message = createMessage('warn', 'Warn Message', 'Sample warning');
-        const expectedErrorMessage: Message = createMessage('error', 'Error Message', 'Sample error');
+    it('should push three messages to the message opject',
+        inject([MessagesService], (messagesService: MessagesService) => {
+            // given
+            spyOn(messagesService, 'createSuccessMessage');
+            spyOn(messagesService, 'createInfoMessage');
+            spyOn(messagesService, 'createWarningMessage');
+            spyOn(messagesService, 'createErrorMessage');
+            // when
+            component.createMessages();
+            // then
+            expect(messagesService.createSuccessMessage).toHaveBeenCalledWith('Awesome succes message', 'Success Message');
+            expect(messagesService.createInfoMessage).toHaveBeenCalledWith('Awesome info message', 'Info Message');
+            expect(messagesService.createWarningMessage).toHaveBeenCalledWith('Important warning message', 'Warning Message');
+            expect(messagesService.createErrorMessage).toHaveBeenCalledWith('Awful error message', 'Error Message');
+        }));
 
-        //when
-        component.createMessages()
-        //then
-        expect(component.messages).toContain(expectedSuccessMessage);
-        expect(component.messages).toContain(expectedWaringMessage);
-        expect(component.messages).toContain(expectedErrorMessage);
-    });
+    it('should clear all messages',
+        inject([MessagesService], (messagesService: MessagesService) => {
+            // given
+            spyOn(messagesService, 'clearMessages');
+            // when
+            component.clearMessages();
+            // then
+            expect(messagesService.clearMessages).toHaveBeenCalled();
+        }));
 
     it('onInit should subscribe to PostsService [getPostById]', () => {
         component.ngOnInit();
