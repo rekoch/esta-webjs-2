@@ -14,6 +14,7 @@ import {RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {NavComponent} from './nav/nav.component';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
     imports: [
@@ -21,6 +22,7 @@ import {NavComponent} from './nav/nav.component';
         RouterModule
     ],
     declarations: [NavComponent, HomeComponent],
+    providers: [AuthService],
     exports: [NavComponent]
 })
 export class CoreModule {
