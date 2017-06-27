@@ -1,0 +1,7 @@
+{
+  "realm": "SBB_Public",
+  "auth-server-url": "",
+  "ssl-required": "external",
+  "resource": "esta-webjs-demo",
+  "public-client": true
+}
