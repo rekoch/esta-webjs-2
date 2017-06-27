@@ -28,6 +28,10 @@
                             d="M35.186 17.02h3.75l-5.047-5.163h6.265v5.163h2.96v-5.163h6.267l-5.05 5.163h3.752l6.427-6.708-6.426-6.73h-3.752l5.05 5.185h-6.266V3.583h-2.96v5.184h-6.267l5.047-5.184h-3.75l-6.43 6.73 6.43 6.707"
                             fill="#FFF"></path>
                 </svg>
+                <ul class="nav navbar-nav navbar-right">
+                    <li *ngIf="!authService.authenticated()"><a (click)="authService.login()"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>Login</a></li>
+                    <li *ngIf="authService.authenticated()"><a (click)="authService.logout()"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>{{ (userInfo | async)?.username }} - Logout</a></li>
+                </ul>
             </div>
         </div>
     </nav>

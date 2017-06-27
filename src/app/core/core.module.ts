@@ -14,11 +14,13 @@ import {RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {NavComponent} from './nav/nav.component';
+import {EstaAuthModule} from "esta-webjs-extensions";
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule
+        RouterModule,
+        EstaAuthModule
     ],
     declarations: [NavComponent, HomeComponent],
     exports: [NavComponent]

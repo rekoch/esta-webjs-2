@@ -8,6 +8,8 @@
  * @since 28.04.2017, 2017.
  */
 import {Component} from '@angular/core';
+import {EstaAuthService} from 'esta-webjs-extensions';
+import {Observable} from 'rxjs/Observable';
 
 interface NavItem {
     displayName: string;
@@ -26,7 +28,9 @@ export class NavComponent {
         {displayName: 'About', routerLink: 'about'},
         {displayName: 'Theme', routerLink: 'theme'}
     ];
+    public userInfo: Observable<any>;
 
-    constructor() {
+    constructor(public authService: EstaAuthService) {
+        this.userInfo = this.authService.getUserInfo();
     }
 }
